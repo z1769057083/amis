@@ -19,9 +19,15 @@ order: 31
       "type": "nested-select",
       "name": "nestedSelect",
       "label": "级联选择器",
+      "multiple": true,
+      "value": [{"label":"B-3","value":"b-3"}],
       "options": [
         {
-          "label": "A",
+          "label": "我爱北京天安门",
+          "value": "a-s"
+        },
+        {
+          "label": "我爱北京天安门",
           "value": "a"
         },
         {
@@ -30,7 +36,19 @@ order: 31
           "children": [
             {
               "label": "B-1",
-              "value": "b-1"
+              "value": "b-1",
+              "children": [
+                {
+                  "label": "B-1-1",
+                  "value": "b-1-2",
+                  "children": [
+                    {
+                      "label": "B-1-1-1",
+                      "value": "b-1-1-1",
+                    }
+                  ]
+                }
+              ]
             },
             {
               "label": "B-2",
@@ -38,8 +56,80 @@ order: 31
             },
             {
               "label": "B-3",
-              "value": "b-3"
-            }
+              "value": "b-3",
+              "children": [
+                {
+                  "label": "B-3-1",
+                  "value": "b-3-1",
+                  "children": [
+                    {
+                      "label": "B-3-1-1",
+                      "value": "b-3-1-1",
+                      "children": [
+                        {
+                          "label": "B-3-1-1-1-------------",
+                          "value": "b-3-1-1-1",
+                          "children": [
+                            {
+                              "label": "B-3-1-1-1-1-------------",
+                              "value": "b-3-1-1-1-1",
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "label": "B-3-1-2",
+                      "value": "b-3-1-2",
+                    }
+                  ]
+                },
+                {
+                  "label": "B-3-2",
+                  "value": "b-3-2",
+                }
+              ]
+            },
+            {
+              "label": "B-5",
+              "value": "b-5"
+            },
+            {
+              "label": "B-6",
+              "value": "b-6"
+            },
+            {
+              "label": "B-7",
+              "value": "b-7"
+            },
+            {
+              "label": "B-8",
+              "value": "b-8"
+            },
+            {
+              "label": "B-9",
+              "value": "b-9"
+            },
+            {
+              "label": "B-10",
+              "value": "b-10"
+            },
+            {
+              "label": "B-11",
+              "value": "b-11"
+            },
+            {
+              "label": "B-12",
+              "value": "b-12"
+            },
+            {
+              "label": "B-13",
+              "value": "b-13"
+            },
+            {
+              "label": "B-14",
+              "value": "b-14"
+            },
           ]
         },
         {
@@ -117,6 +207,7 @@ order: 31
         "type": "nested-select",
         "name": "nestedSelect",
         "label": "级联选择器",
+        "multiple": true,
         "source": "/api/mock2/form/getTreeOptions"
       }
     ]

@@ -89,7 +89,7 @@
     }
   }
 
-  
+
 
   &-mask {
     position: absolute;
@@ -122,9 +122,47 @@
     align-items: center;
     justify-content: center;
     color: var(--PickerColumns-optionText-color);
+    position: relative;
+    &:focus:not(:focus-visible) {
+        outline: 0;
+    }
   }
   &-columnItem.is-disabled {
     cursor: not-allowed;
     opacity: var(--PickerColumns-optionDisabled-opacity);
+  }
+  &-columnItem.is-selected {
+    span {
+      color: var(--Form-select-menu-onActive-color);
+    }
+    color: var(--Form-select-menu-onActive-color);
+  }
+  &-columnItem.is-partial {
+    span {
+      color: var(--Form-select-menu-onActive-color);
+    }
+    color: var(--Form-select-menu-onActive-color);
+  }
+  &-IconWrap {
+    width: px2rem(30px);
+    flex: none;
+    position: relative;
+  }
+  &-Icon {
+    color: var(--Form-select-menu-onActive-color);
+  }
+  &-selectedNum {
+    min-width: px2rem(16px);
+    height: px2rem(16px);
+    line-height: px2rem(16px);
+    border-radius: 100%;
+    text-align: center;
+    background: var(--Form-select-menu-onActive-color);
+    color: var(--white) !important;
+    font-size: var(--fontSizeSm);
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 }

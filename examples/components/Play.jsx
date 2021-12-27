@@ -181,7 +181,7 @@ export default class PlayGround extends React.Component {
 
         let response = await axios(config);
         response = await attachmentAdpator(response, __);
-
+        console.log('response', response, config)
         if (response.status >= 400) {
           if (response.data) {
             // 主要用于 raw: 模式下，后端自己校验登录，

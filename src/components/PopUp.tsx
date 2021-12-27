@@ -44,16 +44,28 @@ const fadeStyles: {
   [ENTERING]: 'in'
 };
 export class PopUp extends React.PureComponent<PopUpPorps> {
+  scrollTop: number = 0;
   static defaultProps = {
     className: '',
     overlay: true,
     isShow: false,
     container: document.body,
-    showClose: true
+    showClose: true,
+    onConfirm: () => {}
   };
-
-  componentDidMount() {
-
+  componentDidUpdate() {
+    if (this.props.isShow) {
+      this.scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+      (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
+    }
+    else {
+      (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto';
+      (document.querySelector('body') as HTMLBodyElement).scrollTop = this.scrollTop;
+    }
+  }
+  componentWillUnmount() {
+    (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto';
+      (document.querySelector('body') as HTMLBodyElement).scrollTop = this.scrollTop;
   }
   handleClick(e: React.MouseEvent) {
     e.stopPropagation();
@@ -66,6 +78,7 @@ export class PopUp extends React.PureComponent<PopUpPorps> {
       children,
       overlay,
       onHide,
+      onConfirm,
       classPrefix: ns,
       classnames: cx,
       className,
@@ -74,7 +87,7 @@ export class PopUp extends React.PureComponent<PopUpPorps> {
       showConfirm,
       translate: __,
       showClose,
-      placement='center',
+      placement = 'center',
       ...rest
     } = this.props;
 
@@ -132,7 +145,7 @@ export class PopUp extends React.PureComponent<PopUpPorps> {
                                <span className={cx(`${ns}PopUp-title`)}>{ title}</span>
                             )
                           }
-                          <Button className={cx(`${ns}PopUp-confirm`)} level="primary" onClick={this.props?.onConfirm}>
+                          <Button className={cx(`${ns}PopUp-confirm`)} level="primary" onClick={onConfirm}>
                             {__('confirm')}
                           </Button>
                         </div>

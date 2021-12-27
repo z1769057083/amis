@@ -199,7 +199,6 @@ export function embed(
       config.validateStatus = function () {
         return true;
       };
-
       let response = await axios(config);
       response = await attachmentAdpator(response, __);
       response = responseAdaptor(api)(response);

@@ -81,7 +81,7 @@ export default function (schema, showCode, envOverrides) {
             const link = normalizeLink(to);
             return router.isActive(link);
           },
-          fetcher: ({url, method, data, config, headers}) => {
+          fetcher: ({ url, method, data, config, headers }) => {
             config = config || {};
             config.headers = headers || {};
 
