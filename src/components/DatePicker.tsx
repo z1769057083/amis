@@ -291,7 +291,6 @@ export interface DateProps extends LocaleProps, ThemeProps {
 
   useMobileUI?: boolean;
 
-  useMobileUI?: boolean;
   // 下面那个千万不要写，写了就会导致 keyof DateProps 得到的结果是 string | number;
   // [propName: string]: any;
 }
@@ -562,6 +561,7 @@ export class DatePicker extends React.Component<DateProps, DatePickerState> {
       embed,
       minDate,
       useMobileUI,
+      maxDate,
       schedules,
       largeMode,
       scheduleClassNames,
@@ -618,6 +618,7 @@ export class DatePicker extends React.Component<DateProps, DatePickerState> {
             onClose={this.close}
             locale={locale}
             minDate={minDate}
+            maxDate={maxDate}
             // utc={utc}
             schedules={schedulesData}
             largeMode={largeMode}
@@ -696,6 +697,7 @@ export class DatePicker extends React.Component<DateProps, DatePickerState> {
                 onClose={this.close}
                 locale={locale}
                 minDate={minDate}
+                maxDate={maxDate}
                 // utc={utc}
               />
             </PopOver>

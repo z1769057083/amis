@@ -43,7 +43,7 @@ const fadeStyles: {
   [EXITED]: '',
   [ENTERING]: 'in'
 };
-export class PopUp extends React.PureComponent<PopUpPorps, {}> {
+export class PopUp extends React.PureComponent<PopUpPorps> {
   static defaultProps = {
     className: '',
     overlay: true,
@@ -71,10 +71,10 @@ export class PopUp extends React.PureComponent<PopUpPorps, {}> {
       className,
       isShow,
       container,
-      placement = 'center',
       showConfirm,
       translate: __,
       showClose,
+      placement='center',
       ...rest
     } = this.props;
 
